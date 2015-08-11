@@ -3,10 +3,10 @@ Continuous asymmetry with interpolation of missing data. Uses eegDb to organize 
 
 ## Requirements
 You need to have following packages:
-* fieldtrip
+* [fieldtrip](https://github.com/fieldtrip/fieldtrip)
 * eeglab
-* eegDb
-* braintools
+* [eegDb](https://github.com/mmagnuski/eegDb)
+* [braintools] (https://github.com/mmagnuski/braintools)
 
 The data stored in your `eegDb` database must be continuous (consecutive windowing of continuous signal), windows marked for rejection should be marked with 'reject' mark but not actually rejected (the mark type should not be applied as rejection).
 
