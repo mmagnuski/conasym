@@ -8,7 +8,7 @@ You need to have following packages:
 * eegDb
 * braintools
 
-The data stored must be continuous (consecutive windowing of continuous signal), windows marked for rejection should be marked with 'reject' mark but not actually rejected (the mark type should not be applied as rejection).
+The data stored in your `eegDb` database must be continuous (consecutive windowing of continuous signal), windows marked for rejection should be marked with 'reject' mark but not actually rejected (the mark type should not be applied as rejection).
 
 ## Usage
 You can get continuous asymmetry (with linear interpolation of data marked as 'reject' in the `eegDb`) to excel file this way:
