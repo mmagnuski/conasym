@@ -8,10 +8,12 @@ You need to have following packages:
 * eegDb
 * braintools
 
+The data stored must be continuous (consecutive windowing of continuous signal), windows marked for rejection should be marked with 'reject' mark but not actually rejected (the mark type should not be applied as rejection).
+
 ## Usage
 You can get continuous asymmetry (with linear interpolation of data marked as 'reject' in the `eegDb`) to excel file this way:
 ```matlab
-# define options
+% define options
 opt.freq = 7:13;
 opt.winlen = 1; % timewindow length
 opt.chan = {'left_channel_01', 'right_channel_01'; ...
@@ -19,6 +21,6 @@ opt.chan = {'left_channel_01', 'right_channel_01'; ...
 opt.asym = 'diffdivbysum'; % compute asymmetry by power difference divided by sum of power
 opt.savepath = 'C:\Users\EvilScientist\asymmetry results'
 
-# run the analysis on all data:
+% run the analysis on all data:
 mass_get_freq_asym(db, opt); % db is your eegDb database
 ```
