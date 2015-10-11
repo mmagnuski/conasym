@@ -9,7 +9,7 @@ def.asym = 'diff';
 if ~exist('opt', 'var')
     opt = def;
 else
-	opt = parse_arse(opt, def);
+	opt = parse_arse(def, opt);
 end
 
 if length(opt.freq) > 1 && length(opt.winlen) == 1
