@@ -66,7 +66,7 @@ pow_l = mean(pow(chn_ind(:,1), :), 1);
 pow_r = mean(pow(chn_ind(:,2), :), 1);
 
 % compute asym
-out.asym = asym(pow_l, pow_r, opt);
+out.asym = asym(pow_l(:), pow_r(:), opt);
 
 % interpolation
 if ~isempty(bad_timrange)

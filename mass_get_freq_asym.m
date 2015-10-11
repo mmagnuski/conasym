@@ -17,7 +17,7 @@ if length(unique(lens)) > 1
         'for further assistance.']);
 end
 all_len = unique(lens);
-all_asym = reshape([all_asym{:}], [db_len, all_len]);
+all_asym = reshape([all_asym{:}], [all_len, db_len])';
 fnms = {db.filename};
 
 % out data format:
