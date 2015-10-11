@@ -35,28 +35,28 @@ bad_timrange = ep_time_range(rej_ep, :);
 num_freq_win = size(freq_time_range, 1);
 
 if ~isempty(bad_timrange)
-remove_freqwin = false(num_freq_win, 3);
+    remove_freqwin = false(num_freq_win, 3);
 
-within = @(x, rng) x > rng(:,1) & x < rng(:,2);
-around = @(x, rng) x(1) <= rng(:, 1) & x(2) >= rng(:, 2);
+    within = @(x, rng) x > rng(:,1) & x < rng(:,2);
+    around = @(x, rng) x(1) <= rng(:, 1) & x(2) >= rng(:, 2);
 
-for f = 1:num_freq_win
-	remove_freqwin(f,1) = any(within(freq_time_range(f,1), ...
-		bad_timrange));
-	remove_freqwin(f,2) = any(within(freq_time_range(f,2), ...
-		bad_timrange));
-	remove_freqwin(f,3) = any(around(freq_time_range(f,:), ...
-		bad_timrange));
-end
+    for f = 1:num_freq_win
+        remove_freqwin(f,1) = any(within(freq_time_range(f,1), ...
+            bad_timrange));
+        remove_freqwin(f,2) = any(within(freq_time_range(f,2), ...
+            bad_timrange));
+        remove_freqwin(f,3) = any(around(freq_time_range(f,:), ...
+            bad_timrange));
+    end
 
-remove_freqwin = any(remove_freqwin, 2);
+    remove_freqwin = any(remove_freqwin, 2);
 end
 
 % average across freq
 out.time = freq.time;
 out.middle_freq = mean(freq.freq);
 if ~isempty(bad_timrange)
-out.interp = remove_freqwin;
+    out.interp = remove_freqwin;
 end
 pow = mean(freq.powspctrm, 2);
 chn_ind = reshape(find_elec(freq, {opt.chan{:}}), size(opt.chan));
