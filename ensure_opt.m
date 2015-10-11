@@ -1,10 +1,9 @@
 def.freq = 8:12;
-def.chan = {'E5', 'E6'; ...
-			'E7', 'E8'};
+def.chan = {'F3', 'F4' };
 def.winlen = 1;
-def.timestep = 0.1;
+def.timestep = 0.2;
 def.savepath = pwd;
-def.asym = 'diffdivbysum';
+def.asym = 'diff';
 
 % check input
 if ~exist('opt', 'var')
