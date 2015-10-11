@@ -38,7 +38,7 @@ if ~isempty(bad_timrange)
 remove_freqwin = false(num_freq_win, 3);
 
 within = @(x, rng) x > rng(:,1) & x < rng(:,2);
-around = @(x, rng) x(1) <= rng(1,:) & x(2) >= rng(2,:);
+around = @(x, rng) x(1) <= rng(:, 1) & x(2) >= rng(:, 2);
 
 for f = 1:num_freq_win
 	remove_freqwin(f,1) = any(within(freq_time_range(f,1), ...
