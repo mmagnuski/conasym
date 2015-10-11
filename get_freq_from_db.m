@@ -2,6 +2,15 @@ function out = get_freq_from_db(db, r, opt)
 
 ensure_opt
 EEG = recoverEEG(db, r, 'local', 'interp');
+
+% TEMP FIX - remove empty events
+tp = {EEG.urevent.type};
+empt = cellfun(@isempty, tp);
+EEG.urevent(empt) = [];
+tp = {EEG.event.type};
+empt = cellfun(@isempty, tp);
+EEG.event(empt) = [];
+
 freq = get_freq(EEG, opt);
 
 % cut marginal NaNs
