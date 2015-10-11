@@ -1,4 +1,4 @@
-function mass_get_freq_asym(db, opt)
+function mass_get_freq_asym(db)
 
 ensure_opt;
 
